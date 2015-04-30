@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="main">
+<head>
+	<meta charset="UTF-8">
+	<title>angular test</title>
+	<script src="angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+
+	<div ng-controller="usersctrl as uc">
+
+		<div ng-repeat="user in uc.user">
+			<h1>{{ user.name }} </h1>
+			<p> {{ user.DOB }} </p>
+			<button ng-show="user.canP">Add to card</button>
+		</div>
+
+	</div>
+
+</body>
+</html>
