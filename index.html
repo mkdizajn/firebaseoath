@@ -9,7 +9,7 @@
 		<ul>
 			<li ng-repeat="message in messages">
 				<!-- edit a message -->
-				<input ng-model="message.text" ng-change="messages.$save(message)" />
+				<span ng-change="messages.$save(message)">ng-model="message.text"</span>
 				<!-- delete a message -->
 				<button ng-click="messages.$remove(message)">Delete Message</button>
 			</li>
