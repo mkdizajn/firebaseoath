@@ -6,7 +6,7 @@ app.controller("SampleCtrl", function($scope, $firebaseAuth) {
 
 	var auth = $firebaseAuth(ref);
 
-	auth.$authWithOAuthRedirect("github").then(function(authData) {
+	auth.$authWithOAuthPopup("github").then(function(authData) {
 		console.log("Logged in as:", authData.uid);
 	}).catch(function(error) {
 		console.log("Authentication failed:", error);
