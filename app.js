@@ -1,4 +1,4 @@
-// our simple app
+// ==========> APP
 var app = angular.module("sampleApp", ["firebase"]);
 // ==========> CONTROLLER START
 app.controller("SampleCtrl", function($scope, $firebaseAuth) {
@@ -6,8 +6,8 @@ app.controller("SampleCtrl", function($scope, $firebaseAuth) {
 
 	var auth = $firebaseAuth(ref);
 
-	auth.$authWithOAuthPopup("github").then(function(authData) {
-		console.log("Logged in as:", authData.uid);
+	auth.$authWithOAuthPopup("google").then(function(authData) {
+		console.log("Logged in as:", authData );
 	}).catch(function(error) {
 		console.log("Authentication failed:", error);
 	});
