@@ -1,20 +1,14 @@
-(function(){
-
-	var app = angular.module( 'main', [] ) ;
-	app.controller( 'usersctrl', function( scope, fbobj ){
-
-		var ref = new Firebase("https://torid-heat-8150.firebaseio.com");
-			ref.authWithOAuthRedirect("github", function(error, authData) {
-			if (error) {
-				console.log("Login Failed!", error);
-			} else {
-				console.log("Authenticated successfully with payload:", authData);
-			}
-		});
-
-		// var syncobj = fbobj( ref );
-		// syncobj.$bindTo( scope, "data" );
-
-	});
-
-})();
+var app = angular.module("sampleApp", ["firebase"]);
+app.controller("SampleCtrl", function($scope, $firebaseArray) {
+  var ref = new Firebase("https://angularfiretesting.firebaseio.com/messages");
+  // create a synchronized array
+  $scope.messages = $firebaseArray(ref);
+  // add new items to the array
+  // the message is automatically added to Firebase!
+  $scope.addMessage = function() {
+    $scope.messages.$add({
+      text: $scope.newMessageText
+    });
+  };
+  // click on `index.html` above to see $remove() and $save() in action
+});
