@@ -1,10 +1,10 @@
 // ==========> APP
 var app = angular.module("sampleApp", ["firebase"]);
 // ==========> CONTROLLER START
-app.controller("SampleCtrl", function($scope, $firebaseAuth) {
-	var ref = new Firebase("https://torid-heat-8150.firebaseio.com/data");
+app.controller("SampleCtrl", function( inst, fbauth ) {
+	var ref = new Firebase("https://torid-heat-8150.firebaseio.com");
 
-	var auth = $firebaseAuth(ref);
+	var auth = fbauth(ref);
 
 	auth.$authWithOAuthPopup("google").then(function(authData) {
 		console.log("Logged in as:", authData );
@@ -13,12 +13,12 @@ app.controller("SampleCtrl", function($scope, $firebaseAuth) {
 	});
 
 	// create a synchronized array
-	$scope.messages = $firebaseArray(ref);
+	 inst.messages = $firebaseArray(ref);
 	// add new items to the array
 	// the message is automatically added to Firebase!
-	$scope.addMessage = function() {
-		$scope.messages.$add({
-			text: $scope.newMessageText
+	 inst.addMessage = function() {
+		 inst.messages.$add({
+			text:  inst.newMessageText
 		});
 	};
 });
