@@ -1,6 +1,8 @@
+// our simple app
 var app = angular.module("sampleApp", ["firebase"]);
+// ==========> CONTROLLER START
 app.controller("SampleCtrl", function($scope, $firebaseArray) {
-	var ref = new Firebase("https://angularfiretesting.firebaseio.com/data");
+	var ref = new Firebase("https://torid-heat-8150.firebaseio.com/data");
 
 	var auth = $firebaseAuth(ref);
 
@@ -19,5 +21,5 @@ app.controller("SampleCtrl", function($scope, $firebaseArray) {
 			text: $scope.newMessageText
 		});
 	};
-	// click on `index.html` above to see $remove() and $save() in action
 });
+// ==========> CONTROLLER END 
