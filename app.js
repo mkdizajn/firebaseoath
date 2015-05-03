@@ -1,6 +1,6 @@
 var app = angular.module("sampleApp", ["firebase"]);
 app.controller("SampleCtrl", function($scope, $firebaseArray) {
-  var ref = new Firebase("https://angularfiretesting.firebaseio.com/messages");
+  var ref = new Firebase("https://angularfiretesting.firebaseio.com/data");
   // create a synchronized array
   $scope.messages = $firebaseArray(ref);
   // add new items to the array
