@@ -13,7 +13,7 @@ app.controller("SampleCtrl", function($scope, $firebaseAuth) {
 	});
 
 	// create a synchronized array
-	$scope.messages = $firebaseAuth(ref);
+	$scope.messages = $firebaseArray(ref);
 	// add new items to the array
 	// the message is automatically added to Firebase!
 	$scope.addMessage = function() {
