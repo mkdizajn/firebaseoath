@@ -12,8 +12,8 @@
 			}
 		});
 
-		var syncobj = fbobj( ref );
-		syncobj.$bindTo( scope, "data" );
+		// var syncobj = fbobj( ref );
+		// syncobj.$bindTo( scope, "data" );
 
 	});
 
