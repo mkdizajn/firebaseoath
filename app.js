@@ -1,14 +1,10 @@
 var app = angular.module("sampleApp", ["firebase"]);
-app.controller("SampleCtrl", function($scope, $firebaseArray) {
+app.controller("SampleCtrl", function( ins , fb) {
   var ref = new Firebase("https://angularfiretesting.firebaseio.com/data");
-  // create a synchronized array
-  $scope.messages = $firebaseArray(ref);
-  // add new items to the array
-  // the message is automatically added to Firebase!
-  $scope.addMessage = function() {
-    $scope.messages.$add({
-      text: $scope.newMessageText
+   ins.messages = fb(ref);
+   ins.addMessage = function() {
+     ins.messages.$add({
+      text:  ins.newMessageText
     });
   };
-  // click on `index.html` above to see $remove() and $save() in action
 });
